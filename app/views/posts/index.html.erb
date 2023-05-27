@@ -1,0 +1,28 @@
+<h1 class="text-center">Posts</h1>
+<%= link_to "New post", new_post_path, class: "btn btn-info text-white" %>
+
+<div id="posts" class="container">
+<% @posts.each do |post| %>
+    <div class="row justify-content-center mt-5">
+      <div class="col-6 border">
+          <h1><%= post.tittle %></h1>
+          <p><%= post.text %></p>
+          <div class="row">
+            <div clas="col row">
+              <div class="col">
+                <%= link_to "Edit", edit_post_path(post), class: "btn btn-info text-white" %>
+              </div>
+              <div class="col">
+                <%= button_to "Destroy", post, method: :delete, class: "btn btn-danger text-white" %>
+              </div>
+            </div>
+            <div class="col">
+              <p class="text-end"><%= post.created_at.strftime("%d/%m/%Y - %H:%M") %></p>
+            </div>
+          </div>         
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
